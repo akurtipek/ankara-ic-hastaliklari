@@ -1,6 +1,12 @@
 ---
 import duyurular from "../../data/duyurular.json";
 
+export function getStaticPaths() {
+  return duyurular.map((d) => ({
+    params: { slug: d.slug },
+  }));
+}
+
 const { slug } = Astro.params;
 
 const duyuru = duyurular.find(d => d.slug === slug);
