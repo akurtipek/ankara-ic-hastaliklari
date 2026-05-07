@@ -6,9 +6,11 @@ const { slug } = Astro.params;
 const duyuru = duyurular.find(d => d.slug === slug);
 ---
 
-<html>
+<html lang="tr">
   <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="/style.css">
+    <title>{duyuru?.baslik}</title>
   </head>
 
   <body>
@@ -16,30 +18,16 @@ const duyuru = duyurular.find(d => d.slug === slug);
     <div id="header"></div>
 
     <main>
-      <h1>{duyuru.baslik}</h1>
-      <p>{duyuru.aciklama}</p>
+      <h1>{duyuru?.baslik}</h1>
+      <p>{duyuru?.aciklama}</p>
 
-      {duyuru.pdf && (
-        <div style="margin-top:30px;">
-          
-          <!-- PDF GÖSTER -->
-          <iframe
-            src={duyuru.pdf}
-            width="100%"
-            height="800px"
-            style="border:1px solid #ddd; border-radius:8px;"
-          />
-
-          <!-- Alternatif link -->
-          <p>
-            <a href={duyuru.pdf} target="_blank">
-              📄 PDF’yi yeni sekmede aç
-            </a>
-          </p>
-
-        </div>
+      {duyuru?.pdf && (
+        <iframe
+          src={duyuru.pdf}
+          width="100%"
+          height="800px"
+        />
       )}
-
     </main>
 
     <div id="footer"></div>
