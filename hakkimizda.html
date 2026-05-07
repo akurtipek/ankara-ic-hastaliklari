@@ -1,23 +1,10 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <title>Hakkımızda</title>
-  <link rel="stylesheet" href="style.css">
-</head>
 <body>
 
-<header>
-  <h1>Hakkımızda</h1>
-</header>
+  <!-- HEADER BURAYA GELECEK -->
+  <div id="header"></div>
 
-<nav>
-  <ul>
-    <li><a href="index.html">Anasayfa</a></li>
-    <li><a href="hakkimizda.html">Hakkımızda</a></li>
-    <li><a href="iletisim.html">İletişim</a></li>
-  </ul>
-</nav>
+  <!-- SAYFA İÇERİĞİ -->
+  <main>
 
 <section style="padding:40px;">
   <h2>Derneğimiz</h2>
@@ -26,6 +13,25 @@
      Ankara Üniversitesi Tıp Fakültesi, İç Hastalıkları Anabilim Dalı öğretim üyeleri tarafından kurulmuş, bilimsel ve sosyal faaliyetleri destekleyen sivil toplum kuruluşudur.
   </p>
 </section>
+  </main>
+
+  <!-- FOOTER BURAYA GELECEK -->
+  <div id="footer"></div>
+
+  <!-- SCRIPT -->
+  <script>
+    fetch("components/header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    fetch("components/footer.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
 
 </body>
 </html>
