@@ -1,0 +1,40 @@
+---
+import duyurular from "../../data/duyurular.json";
+
+const { slug } = Astro.params;
+
+const duyuru = duyurular.find(d => d.slug === slug);
+---
+
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header"></div>
+
+    <main>
+<h1>{duyuru.baslik}</h1>
+<p>{duyuru.aciklama}</p>
+<p>{duyuru.tarih}</p>
+      </main>
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+
+    <script>
+      fetch("/components/header.html")
+        .then(r => r.text())
+        .then(d => document.getElementById("header").innerHTML = d);
+
+      fetch("/components/footer.html")
+        .then(r => r.text())
+        .then(d => document.getElementById("footer").innerHTML = d);
+    </script>
+
+  </body>
+</html>
