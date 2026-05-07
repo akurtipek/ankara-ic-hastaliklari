@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+---
+import duyurular from "../data/duyurular.json";
+---
+
 <html lang="tr">
   <head>
     <meta charset="UTF-8" />
@@ -15,34 +18,15 @@
 
 
   <!-- DUYURULAR -->
-  <section class="announcements">
+<h1>Tüm Duyurular</h1>
 
-    <h2 class="section-title">Duyurular</h2>
-
-    <div class="cards">
-
-      <div class="card">
-        <h3>İç Hastalıkları Araştırma Görevlilerine Yönelik Klinik Ultrasonografi Kursu (28 Haziran 2026)</h3>
-        <p>
-          Fakültemiz İç Hastalıkları Anabilim Dalı öğretim üyeleri Doç. Dr. Uğur Özdemir ve Dr. Öğr. Üy. Ali Can Kurtipek tarafından gerçekleştirilecek olan ” İç Hastalıkları Araştırma Görevlilerine Yönelik Klinik UltraUltrasonografi Kursu” etkinliği 28 Haziran 2026 günü 09:00-17:00 saatleri arasında Morfoloji Binası Mavi Salon’da gerçekleştirilecektir.
-        </p>
-
-        <a href="/pdfs/28 Haziran USG  usg kursu program.pdf">Kurs programı →</a>
-      </div>
-
-      <div class="card">
-        <h3>İç Hastalıkları Araştırma Görevlilerine Yönelik Klinik Ultrasonografi Kursu (20 Haziran 2026)</h3>
-        <p>
-          Fakültemiz İç Hastalıkları Anabilim Dalı öğretim üyeleri Doç. Dr. Uğur Özdemir ve Dr. Öğr. Üy. Ali Can Kurtipek tarafından gerçekleştirilecek olan ” İç Hastalıkları Araştırma Görevlilerine Yönelik Klinik UltraUltrasonografi Kursu” etkinliği 20 Haziran 2026 günü 09:00-17:00 saatleri arasında Morfoloji Binası Mavi Salon’da gerçekleştirilecektir.
-        </p>
-
-        <a href="#">Kurs programı →</a>
-      </div>
-
-    </div>
-
-  </section>
-
+{duyurular.map((d) => (
+  <div class="card">
+    <h3>{d.baslik}</h3>
+    <p>{d.aciklama}</p>
+    <a href={`/duyurular/${d.slug}`}>Detay</a>
+  </div>
+))}
     <!-- FOOTER -->
     <div id="footer"></div>
 
